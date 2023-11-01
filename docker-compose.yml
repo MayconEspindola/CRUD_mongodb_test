@@ -15,11 +15,14 @@ services:
     volumes:
       - ./work/src:/var/www/html
     ports:
-      - 80:80
+      - 8080:80
     links:
       - mongo
     depends_on:
       - mongo
+    environment:
+      MONGODB_USERNAME: root
+      MONGODB_PASSWORD: mongopwd
 
   mongo-express:
     image: mongo-express
